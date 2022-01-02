@@ -306,7 +306,7 @@ del movie_rank[3]
 print(movie_rank)
 
 #del vs remove() vs pop()
-#del은 아무것도 리턴하지 않지만 pop은 deleted list 반환
+#❗❗❗del은 아무것도 리턴하지 않지만 pop은 deleted list 반환 -> dic에서도 동일
 #특정한 오브젝트 지우려면 remove 사용이 더 용이
 #특정 location(index) 지우려면 del이나 pop이 더 용이
 
@@ -408,9 +408,207 @@ print(sorted(data)) #None 출력
 
 
 #파이썬 튜블
+#71
+print("\n#71.")
 my_variable = ()
 print(type(my_variable)) #튜플 타입 확인
 # tuple vs list => 어떤 자료형도 가능(함께 저장 가능)
 # list : [], 값 생성, 삭제, 수정 가능
 # tuple : (), immutable, 할당 시 괄호 생략 가능, 튜플 안에 튜플 원소로 가질 수 있음
 
+#72
+print("\n#72.")
+movie_rank = ('닥터 스트레인지', '스플릿', '럭키')
+print(movie_rank)
+
+#73
+print("\n#73.")
+num = (1)
+num_t = (1,)
+
+print(type(num))    #int
+print(type(num_t))  #tuple
+# 하나의 데이터를 저장하는 튜플에는 꼭❗ 뒤에 ,를 추가해주어야 함
+
+#74
+print("\n#74.")
+print("주석  확인")
+# >> t = (1, 2, 3)
+# >> t[0] = 'a'
+# Traceback (most recent call last):
+#   File "<pyshell#46>", line 1, in <module>
+#     t[0] = 'a'
+# TypeError: 'tuple' object does not support item assignment
+
+# 튜플은 값을 변경할 수 없기 때문에 index로 값을 할당할 수 없다.
+
+#75
+print("\n#75.")
+t = 1, 2, 3, 4
+print(t)
+# 튜플은 괄호 없이도 정의 가능
+
+#76
+print("\n#76.")
+t = ('a', 'b', 'c')
+t = ('A', 'b', 'c')
+print(t) #t[0] = 'A 불가, 새로 할당할 경우 기존 튜플 삭제
+
+#❔77 tuple -> list
+print("\n#77.")
+interest = ('삼성전자', 'LG전자', 'SK Hynix')
+interest = list(interest)
+print(interest, type(interest))
+
+#❔78 list->tuple
+print("\n#78.")
+interest = tuple(interest)
+print(interest, type(interest))
+
+#79 튜플 언팩킹
+print("\n#79.")
+temp = ('apple', 'banana', 'cake')
+a, b, c = temp
+print(a, b, c)
+# >> apple banana cake
+#javascript의 비구조화 할당과 비슷
+
+#80 ❗❗range(시작, 끝, 증가폭)
+print("\n#80.")
+data = tuple(range(2, 100, 2))
+print(data)
+
+
+#파이썬 딕셔너리
+#81 star expression 사용하면 언패킹 시 좌우변 데이터 개수 달라도 됨
+print("\n#81.")
+a, b, *c = (0, 1, 2, 3, 4, 5)
+print(f'a: {a} b: {b} c: {c}')
+
+#좌측 8개 값 바인딩
+scores = [8.8, 8.9, 8.7, 9.2, 9.3, 9.7, 9.9, 9.5, 7.8, 9.4]
+*valid_score, _, _ = scores #남은 두 개  _ 사용하여 생략 가능
+print(valid_score)
+
+#82 우측 8개 값 바인딩
+print("\n#82.")
+_, _, *valid_score = scores
+print(valid_score)
+
+#83 가운데 8개 값 바인딩
+print("\n#83.")
+_, *valid_score, _ = scores
+print(scores)
+
+#84
+print("\n#84.")
+temp = {} #딕셔너리: key - value
+print(type(temp))
+
+#85
+print("\n#85.")
+dic = {'메로나' : 1000, '폴라포' : 1200, '빵빠레' : 1800}
+print(dic)
+
+#86 딕셔너리에 값 추가
+print("\n#86.")
+dic['죠스바'] = 1200
+dic['월드콘'] = 1500
+print(dic)
+
+#87
+print("\n#87.")
+#print(dic('메로나')) #TypeError: 'dict' object is not callable 호출 시 []사용
+print(dic["메로나"])
+
+#88
+print("\n#88.")
+dic['메로나'] = 1300
+print(dic)
+
+#89
+print("\n#89.")
+del dic["메로나"]
+print("del", dic)
+
+#pop vs popitem vs del
+#del은 아무것도 리턴하지 않음❗❗
+#pop은 element 리턴
+#dict.pop(key, default) // default: if the key is not available in the dict, then it will return the derault value.
+#pop() is retulr element. Key isn't in dict, return default
+
+dic = {'메로나' : 1000, '폴라포' : 1200, '빵빠레' : 1800, '죠스바' : 1200, '월드콘' : 1500}
+a = dic.pop('메로나')
+print("pop():", a)
+
+dic = {'메로나' : 1000, '폴라포' : 1200, '빵빠레' : 1800, '죠스바' : 1200, '월드콘' : 1500}
+dic.popitem()
+# python 3.6 이상에서는 마지막 key-value 삭제
+# python 3.5 이하에서는 임의의 key-value값 삭제
+print("popitem: ", dic)
+
+#90
+print("\n#90.")
+print("주석 참고")
+# >> icecream = {'폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+# >> icecream['누가바']
+# Traceback (most recent call last):
+#   File "<pyshell#69>", line 1, in <module>
+#     icecream['누가바']
+# KeyError: '누가바'
+# key값이 존재하지 않기 때문에 에러 발생
+
+#91
+print("\n#91.")
+inventory = {'메로나' : (300, 20), '비비빅' : (400, 3), '죠스바': (250, 100)}
+print(inventory, type(inventory))
+
+#92 딕셔너리 인덱싱
+print("\n#92.")
+print('%d 원' %(inventory["메로나"][0]))
+
+#93
+print("\n#93.")
+print('%d 개' %(inventory["메로나"][1]))
+
+#94 딕셔너리 추가
+print("\n#94.")
+inventory['월드콘'] = [500, 7]
+print(inventory)
+
+#95 딕셔너리 keys() 메소드
+print("\n#95.")
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+icekey = icecream.keys()
+print(icekey, type(icekey)) #dict_keys 타입
+print(list(icekey), type(list(icekey))) #dict_keys 타입
+
+#96 ~ 97 딕셔너리 values() 메소드
+print("\n#96 ~ 97.")
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+icevalue = icecream.values()
+print(list(icevalue), type(list(icevalue)))
+
+sum = sum(icevalue)
+print(sum)
+
+#98 update 메소드
+print("\n#98.")
+icecream = {'탱크보이': 1200, '폴라포': 1200, '빵빠레': 1800, '월드콘': 1500, '메로나': 1000}
+new_product = {'팥빙수':2700, '아맛나':1000}
+icecream.update(new_product)
+print(icecream)
+
+#99 zip과 dict : 아래 두 개 튜플을 하나의 딕셔너리로 변환
+print("\n#99.")
+keys = ("apple", "pear", "peach")
+vals = (300, 250, 400)
+result = dict(zip(keys, vals)) #dict로 변환해주어야 함
+print(result, type(result))
+
+#100 : 두 개의 리스트를 하나의 딕셔너리로 생성
+print("\n#100.")
+date = ['09/05', '09/06', '09/07', '09/08', '09/09']
+close_price = [10500, 10300, 10100, 10800, 11000]
+close_table = dict(zip(date, close_price))
+print(close_table, type(close_table))
