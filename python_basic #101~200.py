@@ -157,16 +157,66 @@ else :
 print(f"grade is {grade}")
 
 #123
+money = input(">> 돈 입력: ")
+answer = money.split("")
+if answer[1] == "달러" :
+    result = float(money) * 1167
+elif answer[1] == "엔" :
+    result = float(money) * 1.096
+elif answer[1] == "유로" :
+    result = float(money) * 1268
+elif answer[1] == "위안" :
+    result = float(money) * 171
+print(result, "원")
 
 #124
+number1 = input(">> input number1: ")
+number2 = input(">> input number2: ")
+number3 = input(">> input number3: ")
+if number1 > number2 :
+    if number1> number3 :
+        biggest = number1
+    else :
+        biggest = number3
+elif number1 < number2 :
+    if number2 > number3 :
+        biggest = number2
+    else :
+        biggest = number3
+print(biggest)
 
 #125
+phone = input(">> 휴대전화 번호 입력: ")
+phoneNum = phone.split('-')
+if phoneNum[0] == "011" :
+    net = "SKT"
+elif phoneNum[0] == "016" :
+    net = "KT"
+elif phoneNum[0] == "019" :
+    net = "LGU"
+else :
+    net = "알수없음"
+print(f"당신은 {net} 사용자입니다.")
 
 #126
+office = input("우편번호: ")
+if office[2] >= 0 and office[2] < 3:
+    print("강북구")
+elif office[2] >= 3 and office[2] < 6 :
+    print("도봉구")
+else :
+    print("노원구")
 
 #127
+people = input(">> 주민등록번호: ")
+mf = people.split("-")[1]
+if int(mf) == 1 or int(mf) == 2 :
+    print("남자")
+else :
+    print("여자")
 
 #128
+
 
 #129
 
