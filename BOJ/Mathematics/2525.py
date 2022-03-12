@@ -1,3 +1,5 @@
+#오븐 시계
+
 h, m = map(int, input().split())
 time = int(input())
 
