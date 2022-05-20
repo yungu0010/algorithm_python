@@ -1,3 +1,6 @@
+# 4949 - 균형잡힌 문자열
+
+
 import sys
 input = sys.stdin.readline
 
@@ -9,7 +12,7 @@ while True :                    # .이 입력될 때까지 실행
     if string == '.' :          # 종료조건인 .이 입력되는 경우 while문 빠져나옴
         break
     stack = []
-    
+
     for i in string:
         if i =='.':
             break
