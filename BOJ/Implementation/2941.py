@@ -11,6 +11,5 @@ count = 0
 for alpha in alphas:
     if alpha in word:
         word = word.replace(alpha, '*')     # .replace는 원본을 바꾸지 않음
-        
-print(word)
+
 print(len(word))
