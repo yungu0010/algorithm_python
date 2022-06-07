@@ -1,4 +1,4 @@
-# # 단지번호 붙이기
+# 단지번호 붙이기
 
 import sys
 input = sys.stdin.readline
