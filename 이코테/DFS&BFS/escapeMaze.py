@@ -6,7 +6,6 @@ input = sys.stdin.readline
 
 N, M = map(int, input().rstrip().split())       # N: 세로, M: 가로
 graph = []
-queue = deque()
 
 # 미로 입력
 for i in range(N):
