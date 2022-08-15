@@ -8,16 +8,18 @@ X = int(input().rstrip())
 N = int(input().rstrip())
 sum = 0
 
+# 물건값 계산
 def calculate(a, b):
     global sum
     sum += a * b
     return
 
+# 총액과 비교
 def compare(sum, X):
     if sum == X:
-        print("YES")
+        print("Yes")
     else:
-        print("NO")
+        print("No")
 
 for _ in range(0, N):
     a, b = map(int, input().split())
