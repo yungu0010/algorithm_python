@@ -4,6 +4,7 @@ num = []
 kapreNumList = []
 sum = 0
 
+# kapre수를 구하는 함수
 def d(n):
     global sum
     sum = 0
@@ -11,6 +12,7 @@ def d(n):
     kapreNum = n + digitSum(n)
     kapreNumList.append(kapreNum)
 
+# 각 자리 수의 합을 구하는 함수
 def digitSum(a):
     global sum
     if a < 10:
@@ -25,6 +27,7 @@ for i in range(10000):
     num.append(i + 1)
     d(i)
 
+# 셀프 넘버(set의 차집합 이용)
 result = set(num) - set(kapreNumList)
 result = sorted(result)
 
