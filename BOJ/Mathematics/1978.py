@@ -1,20 +1,17 @@
-# 1978 - 소수찾기
+# 1978 - 소수 찾기
 
-import sys, math
-
+import sys
 input = sys.stdin.readline
 
 n = int(input())
-num = list(map(int, input().split()))
-count = 0
-
-for i in num :
-    if i >= 2 :
-        for j in range(2, i) :
-            print(i, j)
-            if i % j != 0 :
-                count+= 1
-                break
-            
-        
-print(count)
+numbers = map(int, input().split())
+sosu = 0
+for num in numbers:
+    error = 0
+    if num > 1 :
+        for i in range(2, num):  # 2부터 n-1까지
+            if num % i == 0:
+                error += 1  # 2부터 n-1까지 나눈 몫이 0이면 error가 증가
+        if error == 0:
+            sosu += 1  # error가 없으면 소수.
+print(sosu)
