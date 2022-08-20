@@ -1,17 +1,24 @@
 # 1978 - 소수 찾기
 
-import sys
+import sys, math
 input = sys.stdin.readline
 
-n = int(input())
-numbers = map(int, input().split())
-sosu = 0
-for num in numbers:
-    error = 0
-    if num > 1 :
-        for i in range(2, num):  # 2부터 n-1까지
-            if num % i == 0:
-                error += 1  # 2부터 n-1까지 나눈 몫이 0이면 error가 증가
-        if error == 0:
-            sosu += 1  # error가 없으면 소수.
-print(sosu)
+N = int(input())
+numberList = list(map(int, input().split()))
+
+result = 0
+
+def prime(p):
+    global result 
+    
+    if p < 2:
+        return
+    for j in range(2, p):
+        if p%j == 0:
+            return
+    result += 1
+
+for i in numberList:
+    prime(i)
+
+print(result)
