@@ -16,9 +16,6 @@ while numberCount < X:
 # ex) X = 14일 때 numberCount = 10
 numberCount -= line
 
-print(numberCount)
-print(line)
-
 if line % 2 == 0:
     i = X - numberCount
     j = line - (X - numberCount) + 1
