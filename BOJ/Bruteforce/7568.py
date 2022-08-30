@@ -15,11 +15,11 @@ for i in range(N):
     kg = info[i][0]
     cm = info[i][1]
     for j in range(N):
-        if j == i:
+        if j == i:      # 나 자신과 비교
             continue
-        if kg > info[j][0] and cm > info[j][1]:
+        if kg > info[j][0] and cm > info[j][1]:     # 덩치가 더 클 때
             continue
-        elif kg < info[j][0] and cm < info[j][1]:
+        elif kg < info[j][0] and cm < info[j][1]:   # 덩치가 더 작을 때
             level += 1
     result.append(level)
 
