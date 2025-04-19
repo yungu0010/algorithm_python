@@ -9,11 +9,13 @@ m = int(input())        # 여행 계획에 속한 도시 수
 
 parent = list(range(0, n))
 
+# x의 최상위 부모 찾기
 def find(x):
     if parent[x] != x:
         parent[x] = find(parent[x])
     return parent[x]
 
+# x의 소속을 y로
 def remove(x, y):
     parent[find(x)] = parent[find(y)]
 
@@ -32,6 +34,7 @@ group = set()
 for t in travel:
     group.add(find(t))
 
+# set의 크기가 1이면 모두 같은 부모를 가지고 있음
 if len(group) == 1:
     print("YES")
 else:
